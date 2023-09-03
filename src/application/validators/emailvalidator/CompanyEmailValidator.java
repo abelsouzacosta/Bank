@@ -24,7 +24,7 @@ public class CompanyEmailValidator implements EmailAddressValidator {
             throw new IllegalArgumentException("Email cannot be null.");
         Matcher matcher = COMPANY_GENERIC_EMAIL_PATTERN.matcher(email);
         if (!matcher.matches()) 
-            throw new IllegalArgumentException("Invalid email format: " + email);
+            throw new InvalidEmailAddressException("Invalid email format: " + email);
         
     }
     
