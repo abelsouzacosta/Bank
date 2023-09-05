@@ -5,7 +5,7 @@
 package application.validators.emailvalidator;
 
 import application.exceptions.InvalidEmailAddressException;
-import bank.domain.enums.ClientType;
+import domain.enums.ClientType;
 
 /**
  *

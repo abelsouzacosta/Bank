@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package bank.domain.entities.operation;
+package domain.entities.operation;
 
-import bank.domain.entities.account.BankAccount;
+import application.exceptions.NegativeAmountException;
+import domain.entities.account.BankAccount;
+import domain.utils.ValidationUtils;
 
 /**
  *
@@ -12,13 +14,14 @@ import bank.domain.entities.account.BankAccount;
  */
 public class Deposit extends Operation {
     
-    private double amount;
+    private final double amount;
     
-    public Deposit(double amount) {
+    private Deposit(double amount) {
         this.amount = amount;
     }
     
-    public static Deposit createDeposit(double amount) {
+    public static Deposit createDeposit(double amount) throws NegativeAmountException {
+        ValidationUtils.validateNonNegativeNumber(amount);
         return new Deposit(amount);
     }
     
@@ -28,7 +31,8 @@ public class Deposit extends Operation {
 
     @Override
     public void execute(BankAccount account) {
-        
+        double newBalance = account.getBalance() + this.getAmount();
+        account.setBalance(newBalance);
     }
     
 }

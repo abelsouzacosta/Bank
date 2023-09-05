@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package bank.domain.entities.account;
+package domain.entities.account;
 
-import bank.domain.entities.client.Client;
-import bank.domain.entities.operation.Operation;
-import bank.domain.generators.generators.RandomAccountNumberGenerator;
+import domain.entities.client.Client;
+import domain.entities.operation.Operation;
+import domain.generators.RandomAccountNumberGenerator;
 import java.util.List;
 
 /**
@@ -42,8 +42,19 @@ public class BankAccount {
         return this.balance;
     }
     
+    // TODO: move method to operation service
+    // also create a method to add a operation in the list 
+    // of operations
     public void performOperation(Operation operation) {
         operation.execute(this);
         this.operations.add(operation);
+    }
+    
+    public List<Operation> getOperations() {
+        return this.operations;
+    }
+    
+    public Client getClient() {
+        return this.client;
     }
 }

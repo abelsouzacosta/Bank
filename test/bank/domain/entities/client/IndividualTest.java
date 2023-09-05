@@ -5,6 +5,7 @@
 package bank.domain.entities.client;
 
 
+import domain.entities.client.Individual;
 import application.exceptions.InvalidEmailAddressException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

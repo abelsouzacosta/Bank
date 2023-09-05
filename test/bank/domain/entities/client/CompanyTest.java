@@ -4,8 +4,9 @@
  */
 package bank.domain.entities.client;
 
+import domain.entities.client.Company;
 import application.exceptions.InvalidEmailAddressException;
-import bank.domain.enums.ClientType;
+import domain.enums.ClientType;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

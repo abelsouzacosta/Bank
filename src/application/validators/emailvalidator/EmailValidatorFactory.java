@@ -4,7 +4,7 @@
  */
 package application.validators.emailvalidator;
 
-import bank.domain.enums.ClientType;
+import domain.enums.ClientType;
 
 /**
  *
